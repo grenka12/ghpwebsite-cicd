@@ -1,0 +1,21 @@
+name: CD
+
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ["Jekyll site CI"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+
+      - name: Pull docker image
+        run: docker docker pull ggrenka/website-test:latest
+      - name: Del old docker cont
+        run: docker rm -f website-test-container || true
+      - name: Run Docker container
+        run: docker -d -p 4000:4000 --name website-test-container ggrenka/website-test
