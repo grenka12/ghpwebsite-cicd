@@ -10,7 +10,7 @@ It's all possible using the combination of [Jekyll](https://jekyllrb.com/docs/) 
 
 ![](https://user-images.githubusercontent.com/221550/110506678-51906280-80cd-11eb-803a-c41984bd9312.png)
 
-## Installation
+## Installatio3n
 
 ### Fork the `github/personal-website` repo
 
