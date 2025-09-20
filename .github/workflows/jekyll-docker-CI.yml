@@ -18,7 +18,8 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
           JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
         run: docker build --file Dockerfile -t ggrenka/website-test:latest .
-      - name: login
-        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: push
         run: docker push ggrenka/website-test:latest
