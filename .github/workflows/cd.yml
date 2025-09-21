@@ -14,8 +14,8 @@ jobs:
     steps:
 
       - name: Pull docker image
-        run: docker pull ggrenka/website-test:latest
+        run: sudo docker pull ggrenka/website-test:latest
       - name: Del old docker cont
-        run: docker rm -f website-test-container || true
+        run: sudo docker rm -f website-test-container || true
       - name: Run Docker container
-        run: docker run -d -p 4000:4000 --name website-test-container ggrenka/website-test
+        run: sudo docker run -d -p 4000:4000 --name website-test-container ggrenka/website-test
